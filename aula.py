@@ -1,26 +1,39 @@
 import random
-from alumno import Alumno
-
+import profesor
 
 class Aula:
-
     def __init__(self):
         self.alumnos = []
+        self.profesor = None
     
-
     def add(self, alumno):
         self.alumnos.append(alumno)
-
+    
     def listar(self):
-        for i in self.alumnos:
-            i.setNota(random.randint(0,10))
-            i.describe()
-
-    def convocarExamen(self, turno):
-        for x in self.alumnos:
-            x.convocarExamen(turno)
-        # setVacio(False)
+        if self.profesor == None:
+            pass
+            # raise Exception(f'esta clase tiene profesor')
+        else:
+            # print(f"PROFESOR: {self.profesor}")
+            self.profesor.describe_profe()
+            for alumno in self.alumnos:
+                alumno.describe()
         
-        # if self.vacio == True:
-        #     print("ni el taro")
+    
+    def convocar_examen(self, turno):
+        # print(f"PROFESOR: {self.profesor}")
+        for alumno in self.alumnos:
+            alumno.convocar_examen(turno)
+
+    def convocar_examen_all(self):
+        pass
+
+    def puntuar(self):
+        if self.profesor != None:
+            for alumno in self.alumnos:
+                alumno.setNota(self.profesor.generar_nota())
+                # alumno.describe()
+    
+    def set_profesor(self, profesor):
+        self.profesor = profesor
 

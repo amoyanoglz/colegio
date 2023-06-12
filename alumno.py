@@ -9,20 +9,15 @@ class Alumno:
         self.nota = nota
 
     def describe(self):
-        print(f"Alumnno: {self.nombre.ljust(8)}", end = " - ")
-        print(f"Turno: {self.turno}", end = " - ")
-        print(f"Nota: {self.nota}")
+        print(f"Alumno: {self.nombre.ljust(8)}", end = " - ")
+        print(f"Turno:  {self.turno}", end = " - ")
+        print(f"Nota:   {self.nota}")
 
-    def convocarExamen(self, turno):
-        if self.nota >= 5 and turno == self.turno:
-            print(f"Alumnno: {self.nombre.ljust(8)}", end = " - ")
-            print(f"Turno: {self.turno}", end = " - ")
-            print(f"Nota: {self.nota}", end = " - ")
-            print(f"{self.correo}", end = " - ")
-            print(f"Estimado/a {self.nombre} su nota media ha sido {self.nota}")
-            # setPp("BBB")
-            # print(self.pp)
-            # setVacio(False)
-            # print(self.vacio)
-            # print(f"estado de vacio es {vacio}")
- 
+    def convocar_examen(self, turno):
+        #  and turno == self.turno
+        if self.nota >= 5:
+            print(f"Estimado/a {self.nombre}, su nota media ha sido un {self.nota} ha sivo vd convocado examen")
+            print(f"{self.correo}")
+
+    def convocar_examen_general(self):
+        pass
