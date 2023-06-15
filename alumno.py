@@ -1,8 +1,14 @@
+import request_example
+
 class Alumno:
-    def __init__(self, nombre, turno, correo):
-        self.nombre = nombre
-        self.correo = correo
-        self.turno = turno
+
+    def __init__(self, nombre = None, turno = "A", correo =None):
+        
+        my_user = request_example.generate_name_and_email()[0]
+
+        self.nombre = nombre if nombre is not None else my_user['nombre']
+        self.correo = correo if correo is not None else my_user['correo']
+        self.turno = "A"
         self.nota = 0
 
     def setNota(self, nota):
@@ -14,10 +20,8 @@ class Alumno:
         print(f"Nota:   {self.nota}")
 
     def convocar_examen(self, turno):
-        #  and turno == self.turno
         if self.nota >= 5:
             print(f"Estimado/a {self.nombre}, su nota media ha sido un {self.nota} ha sivo vd convocado examen")
             print(f"{self.correo}")
 
-    def convocar_examen_general(self):
-        pass
+
