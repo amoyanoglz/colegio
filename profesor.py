@@ -1,10 +1,12 @@
 import random
-import request_example
+from usuario import Usuario
 
-class Profesor:
-    def __init__(self, nombre = None, nota_minima = 3, nota_maxima = 9):
+class Profesor(Usuario):
+    def __init__(self):
+        super().__init__()
 
-        my_user = request_example.generate_name_and_email()[0]
+
+        # my_user = request_example.generate_name_and_email()[0]
 
         VALID_NOTES = {
             "min": (0.0, 4.0),
@@ -32,14 +34,14 @@ class Profesor:
                 raise Exception(f'La nota máxima debe ser inferior a {max}')
             return nota_maxima
 
-        self.nombre = nombre if nombre is not None else my_user['nombre']
-        self.nota_minima = 3
-        self.nota_maxima = 9
+        # self.nombre = nombre if nombre is not None else my_user['nombre']
+        self.nota_minima = round(random.uniform(VALID_NOTES["min"][0], (VALID_NOTES["min"][1])), 2)
+        self.nota_maxima = (round(random.uniform(VALID_NOTES["max"][0], (VALID_NOTES["max"][1])), 2))
         # self.nota_minima = validar_nota_minima(nota_minima)
         # self.nota_maxima = validar_nota_maxima(nota_maxima)
 
-    # def __str__(self) -> str:
-    #     return f"{self.nombre} [{self.nota_minima}/{self.nota_maxima}]"
+    def __str__(self) -> str:
+        return f"{self.nombre}\nnota min: {self.nota_minima}\nnota max:{self.nota_maxima}"
 
     def generar_nota(self) -> float:
         if self.nombre != None:

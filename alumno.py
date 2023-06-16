@@ -1,15 +1,25 @@
-import request_example
+# import request_example
+from usuario import Usuario
+# import usuario
 
-class Alumno:
+class Alumno(Usuario):
 
-    def __init__(self, nombre = None, turno = "A", correo =None):
-        
-        my_user = request_example.generate_name_and_email()[0]
-
-        self.nombre = nombre if nombre is not None else my_user['nombre']
-        self.correo = correo if correo is not None else my_user['correo']
-        self.turno = "A"
+    def __init__(self):
+        # super.Usuario().__init__(nombre, correo)
+        super().__init__()
+    
+        # self.turno = "A"
         self.nota = 0
+    
+    
+    # def __init__(self, nombre = None, turno = "A", correo =None):
+        
+    #     my_user = request_example.generate_name_and_email()[0]
+
+    #     self.nombre = nombre if nombre is not None else my_user['nombre']
+    #     self.correo = correo if correo is not None else my_user['correo']
+    #     self.turno = "A"
+    #     self.nota = 0
 
     def setNota(self, nota):
         self.nota = nota
@@ -24,4 +34,5 @@ class Alumno:
             print(f"Estimado/a {self.nombre}, su nota media ha sido un {self.nota} ha sivo vd convocado examen")
             print(f"{self.correo}")
 
-
+alumno1 = Alumno()
+print(alumno1)

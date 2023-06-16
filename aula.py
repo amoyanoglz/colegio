@@ -14,8 +14,8 @@ class Aula:
             pass
             # raise Exception(f'esta clase tiene profesor')
         else:
-            # print(f"PROFESOR: {self.profesor}")
-            self.profesor.describe_profe()
+            print(f"PROFESOR: {self.profesor}")
+            # self.profesor.describe_profe()
             for alumno in self.alumnos:
                 alumno.describe()
         
